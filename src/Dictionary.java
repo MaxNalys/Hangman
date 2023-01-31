@@ -2,8 +2,7 @@ import java.util.Random;
 
 public class Dictionary {
     public static String[] dictionary;
-
-    public Dictionary() {
+    static {
         dictionary = new String[]{"abandon"
                 , "ability"
                 , "able"

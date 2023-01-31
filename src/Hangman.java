@@ -13,7 +13,7 @@ public class Hangman {
         startGame();
     }
 
-    public void startGame() {
+    private void startGame() {
         Scanner scanner = new Scanner(System.in);
         while (!gameOver()) {
             printRowOfDashes();
@@ -31,7 +31,7 @@ public class Hangman {
         }
     }
 
-    public boolean gameOver() {
+    private boolean gameOver() {
         if (isLose()) {
             System.out.println("LOSER");
             System.out.println("Word was: " + mysteryWord);
@@ -46,7 +46,7 @@ public class Hangman {
         return false;
     }
 
-    public void printRowOfDashes() {
+    private void printRowOfDashes() {
         for (int i = 0; i < lettersOfMysteryWord.length; i++) {
             if (lettersOfMysteryWord[i] == null) {
                 System.out.print(" _ ");
@@ -56,11 +56,11 @@ public class Hangman {
         }
     }
 
-    public boolean isYourLetterHere(Character letter) {
+    private boolean isYourLetterHere(Character letter) {
         return mysteryWord.contains(letter.toString());
     }
 
-    public void setLetterToArrayList(Character letter) {
+    private void setLetterToArrayList(Character letter) {
         for (int i = 0; i < mysteryWord.length(); i++) {
             if (mysteryWord.charAt(i) == letter) {
                 lettersOfMysteryWord[i] = letter;
@@ -68,7 +68,7 @@ public class Hangman {
         }
     }
 
-    public boolean isWin() {
+    private boolean isWin() {
         for (Character character : lettersOfMysteryWord) {
             if (character == null) {
                 return false;
@@ -77,11 +77,11 @@ public class Hangman {
         return true;
     }
 
-    public boolean isLose() {
+    private boolean isLose() {
         return mistake == COUNT_OF_PERMISSIBLE_ERRORS;
     }
 
-    public void printGallows() {
+    private void printGallows() {
         if (mistake == 1) {
             printFrame();
         } else if (mistake == 2) {
@@ -109,7 +109,7 @@ public class Hangman {
         }
     }
 
-    public void printFrame() {
+    private void printFrame() {
         for (int i = 0; i < 3; i++) {
             System.out.print(" _ ");
         }
